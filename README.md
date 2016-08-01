@@ -18,6 +18,8 @@
 - [x] **SelecionarPorNome** - Selecionar um certificado por nome
 - [x] **SelecionarPorThumbprint** - Selecionar um certificado por thumbprint
 - [x] **Base64ToX509Certificate** - Transformar certificado base 64 em X509Certificate2
+
+
 - [Criptografia](Funcoes/Classes/Criptografia.cs)
 - [x] **EncryptSHA** - Criptografar texto em SHA1
 - [x] **EncryptASCHII** - Criptografar texto em ASCII
