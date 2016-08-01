@@ -1,9 +1,6 @@
 # MetodosUteis
 :octopus:  DLL de métodos uteis em projetos .net
 
-##Descrição
-
-
 ##Funções
 ###[Certificado](Funcoes/Classes/Certificado.cs)
 - [x] **AssinarXML** - Assinar XML
@@ -87,6 +84,10 @@
 ###[ComplementValues - Extensões de complementos](Funcoes/Values/ComplementValues.cs)
 
 ##Utilização
+
+```
+Funcoes.[CLASSE].[METODO]
+```
 
 **Atenção:**
 Quaisquer dúvidas a respeito do uso desta biblioteca, abra um novo Issue!
