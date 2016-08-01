@@ -5,8 +5,7 @@
 
 
 ##Funções
-###Classes
-- [Certificado](Funcoes/Classes/Certificado.cs)
+###[Certificado](Funcoes/Classes/Certificado.cs)
 - [x] **AssinarXML** - Assinar XML
 - [x] **AssinarXmlPorElemento** - Assinar XML por elemento
 - [x] **X509CertificateToBase64** - Retornar certificado base 64
@@ -18,28 +17,29 @@
 - [x] **SelecionarPorNome** - Selecionar um certificado por nome
 - [x] **SelecionarPorThumbprint** - Selecionar um certificado por thumbprint
 - [x] **Base64ToX509Certificate** - Transformar certificado base 64 em X509Certificate2
-
-
-- [Criptografia](Funcoes/Classes/Criptografia.cs)
+###[Criptografia](Funcoes/Classes/Criptografia.cs)
 - [x] **EncryptSHA** - Criptografar texto em SHA1
 - [x] **EncryptASCHII** - Criptografar texto em ASCII
 - [x] **DecryptASCHII** - Descriptografar texto em ASCII
 - [x] **EncryptMD5** - Criptografar texto em MD5
 - [x] **EncryptPass** - Criptografar texto utilizando palavra passe
 - [x] **DecryptPass** - Descriptografar texto utilizando palavra passe
-- [Lorem Ipsum BodyBuilder](ipsum-bodybuilder.sublime-snippet)
-- [Lorem Ipsum BodyBuilder](ipsum-bodybuilder.sublime-snippet)
-- [Lorem Ipsum BodyBuilder](ipsum-bodybuilder.sublime-snippet)
-- [Lorem Ipsum BodyBuilder](ipsum-bodybuilder.sublime-snippet)
-- [Lorem Ipsum BodyBuilder](ipsum-bodybuilder.sublime-snippet)
-- [Lorem Ipsum BodyBuilder](ipsum-bodybuilder.sublime-snippet)
-- [Lorem Ipsum BodyBuilder](ipsum-bodybuilder.sublime-snippet)
+###[Lorem Ipsum BodyBuilder](ipsum-bodybuilder.sublime-snippet)
+###[Lorem Ipsum BodyBuilder](ipsum-bodybuilder.sublime-snippet)
+###[Lorem Ipsum BodyBuilder](ipsum-bodybuilder.sublime-snippet)
+###[Lorem Ipsum BodyBuilder](ipsum-bodybuilder.sublime-snippet)
+###[Lorem Ipsum BodyBuilder](ipsum-bodybuilder.sublime-snippet)
+###[Lorem Ipsum BodyBuilder](ipsum-bodybuilder.sublime-snippet)
+###[Lorem Ipsum BodyBuilder](ipsum-bodybuilder.sublime-snippet)
 
 ###Values
 - [Lorem Ipsum BodyBuilder](ipsum-bodybuilder.sublime-snippet)
 - [Lorem Ipsum BodyBuilder](ipsum-bodybuilder.sublime-snippet)
 
 ##Utilização
+
+**Atenção:**
+Quaisquer dúvidas a respeito do uso desta biblioteca, abra um novo Issue!
 
 ## Licença
 Projeto desenvolvido para fins acadêmicos.
