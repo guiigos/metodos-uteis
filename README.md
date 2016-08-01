@@ -25,17 +25,66 @@
 - [x] **EncryptMD5** - Criptografar texto em MD5
 - [x] **EncryptPass** - Criptografar texto utilizando palavra passe
 - [x] **DecryptPass** - Descriptografar texto utilizando palavra passe
-###[Lorem Ipsum BodyBuilder](ipsum-bodybuilder.sublime-snippet)
-###[Lorem Ipsum BodyBuilder](ipsum-bodybuilder.sublime-snippet)
-###[Lorem Ipsum BodyBuilder](ipsum-bodybuilder.sublime-snippet)
-###[Lorem Ipsum BodyBuilder](ipsum-bodybuilder.sublime-snippet)
-###[Lorem Ipsum BodyBuilder](ipsum-bodybuilder.sublime-snippet)
-###[Lorem Ipsum BodyBuilder](ipsum-bodybuilder.sublime-snippet)
-###[Lorem Ipsum BodyBuilder](ipsum-bodybuilder.sublime-snippet)
 
-###Values
-- [Lorem Ipsum BodyBuilder](ipsum-bodybuilder.sublime-snippet)
-- [Lorem Ipsum BodyBuilder](ipsum-bodybuilder.sublime-snippet)
+###[DataBase](Funcoes/Classes/DataBase.cs)
+- [x] **Sum** - Retorna o SUM
+- [x] **Max** - Retorna o MAX
+- [x] **Min** - Retorna o MIN
+- [x] **Avg** - Retorna o AVG
+- [x] **Count** - Retorna o COUNT
+- [x] **Update** - Realiza uma alteração UPDATE
+- [x] **Select** - Realiza uma consulta SELECT retornando um Object
+- [x] **Select** - Realiza uma consulta SELECT retornando um DataTable
+- [x] **Select** - Realiza uma consulta SELECT retornando um DataRowCollection
+- [x] **Select** - Realiza uma consulta SELECT retornando um List
+- [x] **ColunasTabela** - Retorna as colunas de uma tabela
+- [x] **MontaSql** - Monta o SQL utilizando a tabela
+- [x] **AddParametros** - Adiciona os parâmetros a um SqlCommand conforme o objeto
+- [x] **PreencheObjetos** - Preenche o objeto utilizando um SqlDataReader
+- [x] **ContraSqlInjection** - Realiza tratamento simples no SQL contra SQL Injection
+
+###[Email](Funcoes/Classes/Email.cs)
+- [x] **EnviarEmail** - Realiza o envio de e-mails
+
+###[Json](Funcoes/Classes/Json.cs)
+- [x] **DataTabelToJSON** - Transforma um DataTable em JSON
+
+###[Xml](Funcoes/Classes/Xml.cs)
+- [x] **StringToXmlDocument** - Transforma uma String em XmlDocument
+- [x] **ObjectToXmlDocument** - Transforma um Object em XmlDocument
+- [x] **StringToObject** - Transforma uma String XML em um Object
+- [x] **XmlDocumentToString** - Transforma um XmlDocument em uma String
+- [x] **ObjectToStringXML** - Transforma uma Object em uma String XML
+- [x] **ValidarDocumentoXml** - Valida String XML conforme um XSD
+
+###[Server](Funcoes/Classes/Server.cs)
+- [x] **MontaSOAP** - Monta envelope SOAP
+- [x] **UploadArquivoFTP** - Upload de arquivos para FTP
+
+###[UtilDate](Funcoes/Classes/UtilDate.cs)
+- [x] **DiferencaDias** - Retorna a diferença entre dias
+- [x] **TruncarData** - Truca um DateTime
+- [x] **DataExenso** - Retorna a data por extenso
+- [x] **DiaSemana** - Retorna o dia da semana
+
+###[UtilString](Funcoes/Classes/UtilString.cs)
+- [x] **SubstringRight** - Realiza o Substring pela direita
+- [x] **RemoveEspeciais** - Remove caracteres especiais
+- [x] **RemoveAcentos** - Remove acentos
+- [x] **RemoverCaracteresEspeciais** - Remove caracteres especiais
+- [x] **SoNumeros** - Retorna somente numeros
+- [x] **SoLetras** - Retorna somente letras
+- [x] **AcertoDG** - Realiza o acerto DG
+- [x] **ValorExtenso** - Retorna um valor por extenso
+
+###[Validators](Funcoes/Classes/Validators.cs)
+- [x] **ValidaEnderecoEmail** - Validação e-mail
+- [x] **ValidaCnpj** - Validação CNPJ
+- [x] **ValidaCpf** - Validação CPF
+- [x] **ValidaPis** - Validação PIS
+
+###[DefaultValues - Extensões de valores default](Funcoes/Values/DefaultValues.cs)
+###[ComplementValues - Extensões de complementos](Funcoes/Values/ComplementValues.cs)
 
 ##Utilização
 
