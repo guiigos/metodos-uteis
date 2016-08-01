@@ -5,7 +5,7 @@
 
 
 ##Funções
-###Classes
+-Classes
 [Certificado](Funcoes/Classes/Certificado.cs)
 - [x] **AssinarXML** - Assinar XML
 - [x] **AssinarXmlPorElemento** - Assinar XML por elemento
@@ -18,7 +18,13 @@
 - [x] **SelecionarPorNome** - Selecionar um certificado por nome
 - [x] **SelecionarPorThumbprint** - Selecionar um certificado por thumbprint
 - [x] **Base64ToX509Certificate** - Transformar certificado base 64 em X509Certificate2
-- [Lorem Ipsum BodyBuilder](Funcoes/Classes/Certificado.cs)
+[Lorem Ipsum BodyBuilder](Funcoes/Classes/Criptografia.cs)
+- [x] **EncryptSHA** - Criptografar texto em SHA1
+- [x] **EncryptASCHII** - Criptografar texto em ASCII
+- [x] **DecryptASCHII** - Descriptografar texto em ASCII
+- [x] **EncryptMD5** - Criptografar texto em MD5
+- [x] **EncryptPass** - Criptografar texto utilizando palavra passe
+- [x] **DecryptPass** - Descriptografar texto utilizando palavra passe
 - [Lorem Ipsum BodyBuilder](ipsum-bodybuilder.sublime-snippet)
 - [Lorem Ipsum BodyBuilder](ipsum-bodybuilder.sublime-snippet)
 - [Lorem Ipsum BodyBuilder](ipsum-bodybuilder.sublime-snippet)
