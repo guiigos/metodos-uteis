@@ -6,7 +6,7 @@
 
 ##Funções
 ###Classes
-- [Certificado](Funcoes/Classes/Certificado.cs)
+[Certificado](Funcoes/Classes/Certificado.cs)
 - [x] **AssinarXML** - Assinar XML
 - [x] **AssinarXmlPorElemento** - Assinar XML por elemento
 - [x] **X509CertificateToBase64** - Retornar certificado base 64
