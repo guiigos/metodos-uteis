@@ -8,10 +8,19 @@
 ###Classes
 - [Certificado](Funcoes/Classes/Certificado.cs)
 
-- [x] Assinatura
+- [x] Assinar XML
+- [x] **AssinarXmlPorElemento** - Assinar XML por elemento
+- [x] Retornar certificado base 64
+- [x] Criptografat mensagem com certificado
+- [x] Descriptografar mensagem com certificado
+- [x] Retornar certificado por thumbprint
+- [x] Retornar certificado por nome
+- [x] Verificar validade do certificado
+- [x] Selecionar um certificado por nome
+- [x] Selecionar um certificado por thumbprint
+- [x] Transformar certificado base 64 em X509Certificate2
 
-
-- [Lorem Ipsum BodyBuilder](ipsum-bodybuilder.sublime-snippet)
+- [Lorem Ipsum BodyBuilder](Funcoes/Classes/Certificado.cs)
 - [Lorem Ipsum BodyBuilder](ipsum-bodybuilder.sublime-snippet)
 - [Lorem Ipsum BodyBuilder](ipsum-bodybuilder.sublime-snippet)
 - [Lorem Ipsum BodyBuilder](ipsum-bodybuilder.sublime-snippet)
