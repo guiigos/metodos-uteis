@@ -22,6 +22,8 @@
 - [x] **EncryptMD5** - Criptografar texto em MD5
 - [x] **EncryptPass** - Criptografar texto utilizando palavra passe
 - [x] **DecryptPass** - Descriptografar texto utilizando palavra passe
+- [x] **EncryptAES** - Criptografar texto em AES
+- [x] **DecryptAES** - Descriptografar texto em AES
 
 ###[DataBase](Funcoes/Classes/DataBase.cs)
 - [x] **Sum** - Retorna o SUM
