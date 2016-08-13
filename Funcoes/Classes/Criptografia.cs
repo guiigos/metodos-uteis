@@ -16,11 +16,6 @@ namespace Funcoes
 
     public class Criptografia
     {
-        #region constantes
-        private const int keysize = 256;
-        private static readonly byte[] initVectorBytes = Encoding.ASCII.GetBytes("tu89geji340t89u2");
-        #endregion
-
         public static string EncryptSHA(String texto)
         {
             try
@@ -92,6 +87,9 @@ namespace Funcoes
 
         public static string EncryptPass(String text, String pass)
         {
+            int keysize = 256;
+            byte[] initVectorBytes = Encoding.ASCII.GetBytes("tu89geji340t89u2");
+
             try
             {
                 byte[] plainTextBytes = Encoding.UTF8.GetBytes(text);
@@ -121,6 +119,9 @@ namespace Funcoes
 
         public static string DecryptPass(String text, String pass)
         {
+            int keysize = 256;
+            byte[] initVectorBytes = Encoding.ASCII.GetBytes("tu89geji340t89u2");
+
             try
             {
                 byte[] cipherTextBytes = Convert.FromBase64String(text);
@@ -145,6 +146,117 @@ namespace Funcoes
             {
                 throw new CriptografiaException("DecryptPass", ex);
             }
+        }
+
+        public static string EncryptAES(String text, String pass)
+        {
+            byte[] key, iv;
+            byte[] salt = new byte[8];
+            RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
+            rng.GetNonZeroBytes(salt);
+
+            Criptografia.AESKeyAndIV(pass, salt, out key, out iv);
+
+            MemoryStream msEncrypt;
+            RijndaelManaged aesAlg = null;
+
+            try
+            {
+                aesAlg = new RijndaelManaged { Mode = CipherMode.CBC, KeySize = 256, BlockSize = 128, Key = key, IV = iv };
+                ICryptoTransform encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
+                msEncrypt = new MemoryStream();
+
+                using (CryptoStream csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write))
+                {
+                    using (StreamWriter swEncrypt = new StreamWriter(csEncrypt))
+                    {
+                        swEncrypt.Write(text);
+                        swEncrypt.Flush();
+                        swEncrypt.Close();
+                    }
+                }
+            }
+            finally
+            {
+                if (aesAlg != null)
+                    aesAlg.Clear();
+            }
+
+            byte[] encryptedBytes = msEncrypt.ToArray();
+            byte[] encryptedBytesWithSalt = new byte[salt.Length + encryptedBytes.Length + 8];
+            Buffer.BlockCopy(Encoding.ASCII.GetBytes("Salted__"), 0, encryptedBytesWithSalt, 0, 8);
+            Buffer.BlockCopy(salt, 0, encryptedBytesWithSalt, 8, salt.Length);
+            Buffer.BlockCopy(encryptedBytes, 0, encryptedBytesWithSalt, salt.Length + 8, encryptedBytes.Length);
+
+            return Convert.ToBase64String(encryptedBytesWithSalt);
+        }
+
+        public static string DecryptAES(String text, String pass)
+        {
+            byte[] encryptedBytesWithSalt = Convert.FromBase64String(text);
+
+            byte[] salt = new byte[8];
+            byte[] encryptedBytes = new byte[encryptedBytesWithSalt.Length - salt.Length - 8];
+            Buffer.BlockCopy(encryptedBytesWithSalt, 8, salt, 0, salt.Length);
+            Buffer.BlockCopy(encryptedBytesWithSalt, salt.Length + 8, encryptedBytes, 0, encryptedBytes.Length);
+
+            byte[] key, iv;
+            Criptografia.AESKeyAndIV(pass, salt, out key, out iv);
+
+            RijndaelManaged aesAlg = null;
+            string plaintext;
+
+            try
+            {
+                aesAlg = new RijndaelManaged { Mode = CipherMode.CBC, KeySize = 256, BlockSize = 128, Key = key, IV = iv };
+                ICryptoTransform decryptor = aesAlg.CreateDecryptor(aesAlg.Key, aesAlg.IV);
+                using (MemoryStream msDecrypt = new MemoryStream(encryptedBytes))
+                {
+                    using (CryptoStream csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read))
+                    {
+                        using (StreamReader srDecrypt = new StreamReader(csDecrypt))
+                        {
+                            plaintext = srDecrypt.ReadToEnd();
+                            srDecrypt.Close();
+                        }
+                    }
+                }
+            }
+            finally
+            {
+                if (aesAlg != null)
+                    aesAlg.Clear();
+            }
+            return plaintext;
+        }
+
+        private static void AESKeyAndIV(string pass, byte[] salt, out byte[] key, out byte[] iv)
+        {
+            List<byte> concatenatedHashes = new List<byte>(48);
+            byte[] password = Encoding.UTF8.GetBytes(pass);
+            byte[] currentHash = new byte[0];
+            MD5 md5 = MD5.Create();
+            bool enoughBytesForKey = false;
+
+            while (!enoughBytesForKey)
+            {
+                int preHashLength = currentHash.Length + password.Length + salt.Length;
+                byte[] preHash = new byte[preHashLength];
+                Buffer.BlockCopy(currentHash, 0, preHash, 0, currentHash.Length);
+                Buffer.BlockCopy(password, 0, preHash, currentHash.Length, password.Length);
+                Buffer.BlockCopy(salt, 0, preHash, currentHash.Length + password.Length, salt.Length);
+                currentHash = md5.ComputeHash(preHash);
+                concatenatedHashes.AddRange(currentHash);
+                if (concatenatedHashes.Count >= 48)
+                    enoughBytesForKey = true;
+            }
+
+            key = new byte[32];
+            iv = new byte[16];
+            concatenatedHashes.CopyTo(0, key, 0, 32);
+            concatenatedHashes.CopyTo(32, iv, 0, 16);
+            md5.Clear();
+            md5 = null;
         }
     }
 }
