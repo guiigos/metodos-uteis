@@ -37,9 +37,6 @@
 - [x] **Select** - Realiza uma consulta SELECT retornando um DataRowCollection
 - [x] **Select** - Realiza uma consulta SELECT retornando um List
 - [x] **ColunasTabela** - Retorna as colunas de uma tabela
-- [x] **MontaSql** - Monta o SQL utilizando a tabela
-- [x] **AddParametros** - Adiciona os parâmetros a um SqlCommand conforme o objeto
-- [x] **PreencheObjetos** - Preenche o objeto utilizando um SqlDataReader
 - [x] **ContraSqlInjection** - Realiza tratamento simples no SQL contra SQL Injection
 
 ###[Email](Funcoes/Classes/Email.cs)

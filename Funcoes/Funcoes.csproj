@@ -43,7 +43,6 @@
   <ItemGroup>
     <Compile Include="Classes\Certificado.cs" />
     <Compile Include="Classes\Criptografia.cs" />
-    <Compile Include="Classes\CriptografiaKey.cs" />
     <Compile Include="Classes\Json.cs" />
     <Compile Include="Classes\Server.cs" />
     <Compile Include="Classes\UtilDate.cs" />
