@@ -66,7 +66,7 @@ namespace Funcoes
         }
         #endregion
 
-        #region private
+        #region metodos
         private string corrigeHTMLEmail(string mensagem)
         {
             while (mensagem.IndexOf("SIZE=\"") > -1)
@@ -76,9 +76,7 @@ namespace Funcoes
             }
             return mensagem;
         }
-        #endregion
 
-        #region metodos
         public bool EnviarEmail()
         {
             SmtpClient clientSmtp = new SmtpClient();

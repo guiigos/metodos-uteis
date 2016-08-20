@@ -15,6 +15,12 @@ namespace Funcoes
 
     public class UtilString
     {
+        /// <summary>
+        /// Realiza o Substring pela direita
+        /// </summary>
+        /// <param name="texto">Texto</param>
+        /// <param name="tamanho">Tamanho</param>
+        /// <returns>Retorna a formatação realizada</returns>
         public static string SubstringRight(String texto, Int32 tamanho)
         {
             try
@@ -27,6 +33,11 @@ namespace Funcoes
             }
         }
 
+        /// <summary>
+        /// Remove caracteres especiais
+        /// </summary>
+        /// <param name="texto">Texto</param>
+        /// <returns>Retorna a formatação realizada</returns>
         public static string RemoveEspeciais(String texto)
         {
             try
@@ -45,6 +56,11 @@ namespace Funcoes
             }
         }
 
+        /// <summary>
+        /// Remove acentos
+        /// </summary>
+        /// <param name="texto">Texto</param>
+        /// <returns>Retorna a formatação realizada</returns>
         public static string RemoveAcentos(String texto)
         {
             string comAcentos = "ÄÅÁÂÀÃäáâàãÉÊËÈéêëèÍÎÏÌíîïìÖÓÔÒÕöóôòõÜÚÛüúûùÇç�";
@@ -56,6 +72,11 @@ namespace Funcoes
             return texto;
         }
 
+        /// <summary>
+        /// Remove caracteres especiais
+        /// </summary>
+        /// <param name="texto">Texto</param>
+        /// <returns>Retorna a formatação realizada</returns>
         public static string RemoverCaracteresEspeciais(String texto)
         {
             string caracteresEspec = "*!@#$%&()ªº°.";
@@ -70,6 +91,11 @@ namespace Funcoes
             return novoTexto;
         }
 
+        /// <summary>
+        /// Retorna somente os números do texto
+        /// </summary>
+        /// <param name="texto">Texto</param>
+        /// <returns>Retorna a formatação realizada</returns>
         public static string SoNumeros(String texto)
         {
             string str = String.Empty, strNumero = "0123456789";
@@ -83,6 +109,11 @@ namespace Funcoes
             return str;
         }
 
+        /// <summary>
+        /// Retorna somente as letras do texto
+        /// </summary>
+        /// <param name="texto">Texto</param>
+        /// <returns>Retorna a formatação realizada</returns>
         public static string SoLetras(String texto)
         {
             texto = texto.Trim();
@@ -100,6 +131,15 @@ namespace Funcoes
             return novoTexto;
         }
 
+        /// <summary>
+        /// Realiza o acerto DG
+        /// </summary>
+        /// <param name="texto">Texto</param>
+        /// <param name="caracter">Caractere</param>
+        /// <param name="direcao">Direção</param>
+        /// <param name="tamanho">Tamnho</param>
+        /// <param name="upperCase">Converter para upperCase</param>
+        /// <returns>Retorna a formatação realizada</returns>
         public static string AcertoDG(String texto, String caracter, Byte direcao, Int32 tamanho, Boolean upperCase)
         {
             try
@@ -124,6 +164,11 @@ namespace Funcoes
             }
         }
 
+        /// <summary>
+        /// Retorna um valor por extenso
+        /// </summary>
+        /// <param name="valor">Valor</param>
+        /// <returns>Retorna a formatação realizada</returns>
         public static string ValorExtenso(String valor)
         {
             string[] wunidade = { "", " e um", " e dois", " e três", " e quatro", " e cinco", " e seis", " e sete", " e oito", " e nove" };

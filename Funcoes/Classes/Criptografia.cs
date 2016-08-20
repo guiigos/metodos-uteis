@@ -85,69 +85,6 @@ namespace Funcoes
             }
         }
 
-        public static string EncryptPass(String text, String pass)
-        {
-            int keysize = 256;
-            byte[] initVectorBytes = Encoding.ASCII.GetBytes("tu89geji340t89u2");
-
-            try
-            {
-                byte[] plainTextBytes = Encoding.UTF8.GetBytes(text);
-                using (PasswordDeriveBytes password = new PasswordDeriveBytes(pass, null))
-                {
-                    byte[] keyBytes = password.GetBytes(keysize / 8);
-                    using (RijndaelManaged symmetricKey = new RijndaelManaged())
-                    {
-                        symmetricKey.Mode = CipherMode.CBC;
-                        using (ICryptoTransform encryptor = symmetricKey.CreateEncryptor(keyBytes, initVectorBytes))
-                        using (MemoryStream memoryStream = new MemoryStream())
-                        using (CryptoStream cryptoStream = new CryptoStream(memoryStream, encryptor, CryptoStreamMode.Write))
-                        {
-                            cryptoStream.Write(plainTextBytes, 0, plainTextBytes.Length);
-                            cryptoStream.FlushFinalBlock();
-                            byte[] cipherTextBytes = memoryStream.ToArray();
-                            return Convert.ToBase64String(cipherTextBytes);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new CriptografiaException("EncryptPass", ex);
-            }
-        }
-
-        public static string DecryptPass(String text, String pass)
-        {
-            int keysize = 256;
-            byte[] initVectorBytes = Encoding.ASCII.GetBytes("tu89geji340t89u2");
-
-            try
-            {
-                byte[] cipherTextBytes = Convert.FromBase64String(text);
-                using (PasswordDeriveBytes password = new PasswordDeriveBytes(pass, null))
-                {
-                    byte[] keyBytes = password.GetBytes(keysize / 8);
-                    using (RijndaelManaged symmetricKey = new RijndaelManaged())
-                    {
-                        symmetricKey.Mode = CipherMode.CBC;
-                        using (ICryptoTransform decryptor = symmetricKey.CreateDecryptor(keyBytes, initVectorBytes))
-                        using (MemoryStream memoryStream = new MemoryStream(cipherTextBytes))
-                        using (CryptoStream cryptoStream = new CryptoStream(memoryStream, decryptor, CryptoStreamMode.Read))
-                        {
-                            byte[] plainTextBytes = new byte[cipherTextBytes.Length];
-                            int decryptedByteCount = cryptoStream.Read(plainTextBytes, 0, plainTextBytes.Length);
-                            return Encoding.UTF8.GetString(plainTextBytes, 0, decryptedByteCount);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new CriptografiaException("DecryptPass", ex);
-            }
-        }
-
         public static string EncryptAES(String text, String pass)
         {
             byte[] key, iv;
@@ -155,7 +92,31 @@ namespace Funcoes
             RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
             rng.GetNonZeroBytes(salt);
 
-            Criptografia.AESKeyAndIV(pass, salt, out key, out iv);
+            List<byte> concatenatedHashes = new List<byte>(48);
+            byte[] password = Encoding.UTF8.GetBytes(pass);
+            byte[] currentHash = new byte[0];
+            MD5 md5 = MD5.Create();
+            bool enoughBytesForKey = false;
+
+            while (!enoughBytesForKey)
+            {
+                int preHashLength = currentHash.Length + password.Length + salt.Length;
+                byte[] preHash = new byte[preHashLength];
+                Buffer.BlockCopy(currentHash, 0, preHash, 0, currentHash.Length);
+                Buffer.BlockCopy(password, 0, preHash, currentHash.Length, password.Length);
+                Buffer.BlockCopy(salt, 0, preHash, currentHash.Length + password.Length, salt.Length);
+                currentHash = md5.ComputeHash(preHash);
+                concatenatedHashes.AddRange(currentHash);
+                if (concatenatedHashes.Count >= 48)
+                    enoughBytesForKey = true;
+            }
+
+            key = new byte[32];
+            iv = new byte[16];
+            concatenatedHashes.CopyTo(0, key, 0, 32);
+            concatenatedHashes.CopyTo(32, iv, 0, 16);
+            md5.Clear();
+            md5 = null;
 
             MemoryStream msEncrypt;
             RijndaelManaged aesAlg = null;
@@ -201,7 +162,31 @@ namespace Funcoes
             Buffer.BlockCopy(encryptedBytesWithSalt, salt.Length + 8, encryptedBytes, 0, encryptedBytes.Length);
 
             byte[] key, iv;
-            Criptografia.AESKeyAndIV(pass, salt, out key, out iv);
+            List<byte> concatenatedHashes = new List<byte>(48);
+            byte[] password = Encoding.UTF8.GetBytes(pass);
+            byte[] currentHash = new byte[0];
+            MD5 md5 = MD5.Create();
+            bool enoughBytesForKey = false;
+
+            while (!enoughBytesForKey)
+            {
+                int preHashLength = currentHash.Length + password.Length + salt.Length;
+                byte[] preHash = new byte[preHashLength];
+                Buffer.BlockCopy(currentHash, 0, preHash, 0, currentHash.Length);
+                Buffer.BlockCopy(password, 0, preHash, currentHash.Length, password.Length);
+                Buffer.BlockCopy(salt, 0, preHash, currentHash.Length + password.Length, salt.Length);
+                currentHash = md5.ComputeHash(preHash);
+                concatenatedHashes.AddRange(currentHash);
+                if (concatenatedHashes.Count >= 48)
+                    enoughBytesForKey = true;
+            }
+
+            key = new byte[32];
+            iv = new byte[16];
+            concatenatedHashes.CopyTo(0, key, 0, 32);
+            concatenatedHashes.CopyTo(32, iv, 0, 16);
+            md5.Clear();
+            md5 = null;
 
             RijndaelManaged aesAlg = null;
             string plaintext;
@@ -228,35 +213,6 @@ namespace Funcoes
                     aesAlg.Clear();
             }
             return plaintext;
-        }
-
-        private static void AESKeyAndIV(string pass, byte[] salt, out byte[] key, out byte[] iv)
-        {
-            List<byte> concatenatedHashes = new List<byte>(48);
-            byte[] password = Encoding.UTF8.GetBytes(pass);
-            byte[] currentHash = new byte[0];
-            MD5 md5 = MD5.Create();
-            bool enoughBytesForKey = false;
-
-            while (!enoughBytesForKey)
-            {
-                int preHashLength = currentHash.Length + password.Length + salt.Length;
-                byte[] preHash = new byte[preHashLength];
-                Buffer.BlockCopy(currentHash, 0, preHash, 0, currentHash.Length);
-                Buffer.BlockCopy(password, 0, preHash, currentHash.Length, password.Length);
-                Buffer.BlockCopy(salt, 0, preHash, currentHash.Length + password.Length, salt.Length);
-                currentHash = md5.ComputeHash(preHash);
-                concatenatedHashes.AddRange(currentHash);
-                if (concatenatedHashes.Count >= 48)
-                    enoughBytesForKey = true;
-            }
-
-            key = new byte[32];
-            iv = new byte[16];
-            concatenatedHashes.CopyTo(0, key, 0, 32);
-            concatenatedHashes.CopyTo(32, iv, 0, 16);
-            md5.Clear();
-            md5 = null;
         }
     }
 }

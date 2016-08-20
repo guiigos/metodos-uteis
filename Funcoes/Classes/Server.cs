@@ -10,14 +10,26 @@ using System.Xml;
 
 namespace Funcoes
 {
+    class ServerException : Exception
+    {
+        public ServerException(String metodo, Exception ex) :
+            base("Funcoes.Server." + metodo + " - " + ex.Message) { }
+    }
+
     public class Server
     {
-        class ServerException : Exception
-        {
-            public ServerException(String metodo, Exception ex) :
-                base("Funcoes.Server." + metodo + " - " + ex.Message) { }
-        }
-
+        /// <summary>
+        /// Método que realiza a montagem de um envelope SOAP
+        /// </summary>
+        /// <param name="url">URL do servidor</param>
+        /// <param name="xml">XML que quer envelopar</param>
+        /// <param name="method">Method do SOAP</param>
+        /// <param name="action">Action do SOAP</param>
+        /// <param name="SOAPaction">SOAPaction do SOAP</param>
+        /// <param name="soapEnvelope">Envelope</param>
+        /// <param name="certificado">Certificado digital</param>
+        /// <param name="proxy">WebProxy</param>
+        /// <returns>Retorna o resultado da requisição</returns>
         public static string MontaSOAP(String url, String xml, String method, String action, String SOAPaction, String soapEnvelope, X509Certificate2 certificado, WebProxy proxy)
         {
             HttpWebRequest myHttpWebRequest = null;
@@ -67,6 +79,14 @@ namespace Funcoes
             }
         }
 
+        /// <summary>
+        /// Realiza o UPLOAD de arquivos para um servidor FTP
+        /// </summary>
+        /// <param name="url">URL do servidor</param>
+        /// <param name="usuario">Usuário do FTP</param>
+        /// <param name="senha">Senha do FTP</param>
+        /// <param name="path">Caminho do arquivo</param>
+        /// <returns>Retorna status do upload</returns>
         public static bool UploadArquivoFTP(String url, String usuario, String senha, String path)
         {
             try

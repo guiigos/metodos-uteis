@@ -15,6 +15,11 @@ namespace Funcoes
 
     public class Json
     {
+        /// <summary>
+        /// Converte um DataTable em uma String JSON
+        /// </summary>
+        /// <param name="dtb">DataTable que se pretende converter</param>
+        /// <returns>String JSON</returns>
         public static string DataTabelToJSON(DataTable dtb)
         {
             try

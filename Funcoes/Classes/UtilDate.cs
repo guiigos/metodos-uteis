@@ -15,12 +15,25 @@ namespace Funcoes
 
     public class UtilDate
     {
+        /// <summary>
+        /// Retorna a diferença entre dias
+        /// </summary>
+        /// <param name="dtInicial">Data inicial</param>
+        /// <param name="dtFinal">Data final</param>
+        /// <param name="semHoras">TRUE para contar as horas, FALSE para ignorar</param>
+        /// <returns>Retorna a diferença entre dias</returns>
         public static int DiferencaDias(DateTime dtInicial, DateTime dtFinal, Boolean semHoras)
         {
             if (semHoras) return dtFinal.Date.Subtract(dtInicial.Date).Days;
             return dtFinal.Subtract(dtInicial).Days;
         }
 
+        /// <summary>
+        /// Truca um DateTime
+        /// </summary>
+        /// <param name="data">Data</param>
+        /// <param name="inicial">TRUE para trucar para inicial</param>
+        /// <returns>Retorna a data truncada</returns>
         public static string TruncarData(DateTime data, Boolean inicial)
         {
             try
@@ -34,6 +47,11 @@ namespace Funcoes
             }
         }
 
+        /// <summary>
+        /// Retorna a data por extenso
+        /// </summary>
+        /// <param name="data">Data</param>
+        /// <returns>Retorna uma string com a data por extenso</returns>
         public static string DataExenso(DateTime data)
         {
             try
@@ -55,6 +73,12 @@ namespace Funcoes
             }
         }
 
+        /// <summary>
+        /// Retorna o dia da semana
+        /// </summary>
+        /// <param name="diaDaSemana">Dia da semana</param>
+        /// <param name="abreviado">Abreviado ou não</param>
+        /// <returns>Retorna o dia da semana</returns>
         public static string DiaSemana(DayOfWeek diaDaSemana, Boolean abreviado)
         {
             switch (diaDaSemana)
@@ -76,6 +100,16 @@ namespace Funcoes
                 default:
                     return String.Empty;
             }
+        }
+
+        /// <summary>
+        /// Zera o time da data
+        /// </summary>
+        /// <param name="data">Data</param>
+        /// <returns>Retorna a data com o time zerado</returns>
+        public static DateTime ZerarTime(DateTime data)
+        {
+            return new DateTime(data.Year, data.Month, data.Day);
         }
     }
 }

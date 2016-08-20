@@ -18,6 +18,11 @@ namespace Funcoes
 
     public class Validators
     {
+        /// <summary>
+        /// Método que realiza a validação de um endereço de Email
+        /// </summary>
+        /// <param name="enderecoEmail">Endereço de e-mail</param>
+        /// <returns>TRUE para válido, FALSE para não válido</returns>
         public static bool ValidaEnderecoEmail(String enderecoEmail)
         {
             try
@@ -34,6 +39,11 @@ namespace Funcoes
             }
         }
 
+        /// <summary>
+        /// Método que realiza a validação de um CNPJ
+        /// </summary>
+        /// <param name="cnpj">CNPJ a ser validado</param>
+        /// <returns>TRUE para válido, FALSE para não válido</returns>
         public static bool ValidaCnpj(String cnpj)
         {
             try
@@ -79,6 +89,11 @@ namespace Funcoes
             }
         }
 
+        /// <summary>
+        /// Método que realiza a validação de um CPF
+        /// </summary>
+        /// <param name="cpf">CPF a ser validado</param>
+        /// <returns>TRUE para válido, FALSE para não válido</returns>
         public static bool ValidaCpf(String cpf)
         {
             try
@@ -122,6 +137,11 @@ namespace Funcoes
             }
         }
 
+        /// <summary>
+        /// Método que realiza a validação de um PIS
+        /// </summary>
+        /// <param name="pis">PIS a ser validado</param>
+        /// <returns>TRUE para válido, FALSE para não válido</returns>
         public static bool ValidaPis(String pis)
 	    {
             try
