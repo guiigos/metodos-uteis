@@ -16,11 +16,6 @@ public static class ComplementValues
         return QueryString(string.Format("{0:yyyyMMdd}", Convert.ToDateTime(value)));
     }
 
-    public static DateTime ZerarTime(this DateTime data)
-    {
-        return new DateTime(data.Year, data.Month, data.Day);
-    }
-
     public static String MaskCpfCpnj(this String numCpfCnpj)
     {
         if (numCpfCnpj != null && numCpfCnpj != String.Empty)
@@ -44,5 +39,32 @@ public static class ComplementValues
         }
 
         return String.Empty;
+    }
+
+    public static String Limit(this String value, int maxLength)
+    {
+        if (value.Length <= maxLength)  return value;
+
+        return string.Concat(value.Substring(0, maxLength).Trim(), String.Empty);
+    } 
+
+    public static DateTime ZerarTime(this DateTime data)
+    {
+        return new DateTime(data.Year, data.Month, data.Day);
+    }
+
+    public static Boolean Contains(this String text, String value)
+    {
+        return text.IndexOf(value) >= 0;
+    }
+
+    public static Boolean IsNullOrEmpty(this String value)
+    {
+        return String.IsNullOrEmpty(value);
+    }
+
+    public static IEnumerable<String> SplitTrim(this String value, params Char[] separator)
+    {
+        return value.Trim().Split(separator, StringSplitOptions.RemoveEmptyEntries).Select(s => s.Trim());
     }
 }
