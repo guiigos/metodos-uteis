@@ -3,17 +3,17 @@
 
 ##Funções
 ###[Certificado](Funcoes/Classes/Certificado.cs)
-- [x] **AssinarXML** - Assinar XML
-- [x] **AssinarXmlPorElemento** - Assinar XML por elemento
-- [x] **X509CertificateToBase64** - Retornar certificado base 64
-- [x] **EncryptMessage** - Criptografat mensagem com certificado
-- [x] **DescryptMessage** - Descriptografar mensagem com certificado
-- [x] **RetornarThumbprint** - Retornar certificado por thumbprint
-- [x] **RetornarNome** - Retornar certificado por nome
-- [x] **Vencido** - Verificar validade do certificado
-- [x] **SelecionarPorNome** - Selecionar um certificado por nome
-- [x] **SelecionarPorThumbprint** - Selecionar um certificado por thumbprint
-- [x] **Base64ToX509Certificate** - Transformar certificado base 64 em X509Certificate2
+- **AssinarXML** - Assinar XML
+- **AssinarXmlPorElemento** - Assinar XML por elemento
+- **X509CertificateToBase64** - Retornar certificado base 64
+- **EncryptMessage** - Criptografat mensagem com certificado
+- **DescryptMessage** - Descriptografar mensagem com certificado
+- **RetornarThumbprint** - Retornar certificado por thumbprint
+- **RetornarNome** - Retornar certificado por nome
+- **Vencido** - Verificar validade do certificado
+- **SelecionarPorNome** - Selecionar um certificado por nome
+- **SelecionarPorThumbprint** - Selecionar um certificado por thumbprint
+- **Base64ToX509Certificate** - Transformar certificado base 64 em X509Certificate2
 
 ###[Criptografia](Funcoes/Classes/Criptografia.cs)
 - [x] **EncryptSHA** - Criptografar texto em SHA1
