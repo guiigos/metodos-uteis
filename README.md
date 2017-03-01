@@ -17,14 +17,14 @@
 > **Base64ToX509Certificate** - Transformar certificado base 64 em X509Certificate2
 
 ###[Criptografia](Funcoes/Classes/Criptografia.cs)
-> **EncryptSHA** - Criptografar texto em SHA1
-> **EncryptASCHII** - Criptografar texto em ASCII
-> **DecryptASCHII** - Descriptografar texto em ASCII
-> **EncryptMD5** - Criptografar texto em MD5
-> **EncryptPass** - Criptografar texto utilizando palavra passe
-> **DecryptPass** - Descriptografar texto utilizando palavra passe
-> **EncryptAES** - Criptografar texto em AES
-> **DecryptAES** - Descriptografar texto em AES
+> <p><strong>EncryptSHA</strong> - Criptografar texto em SHA1</p>
+> <p><strong>EncryptASCHII</strong> - Criptografar texto em ASCII</p>
+> <p><strong>DecryptASCHII</strong> - Descriptografar texto em ASCII</p>
+> <p><strong>EncryptMD5</strong> - Criptografar texto em MD5</p>
+> <p><strong>EncryptPass</strong> - Criptografar texto utilizando palavra passe</p>
+> <p><strong>DecryptPass</strong> - Descriptografar texto utilizando palavra passe</p>
+> <p><strong>EncryptAES</strong> - Criptografar texto em AES</p>
+> <p><strong>DecryptAES</strong> - Descriptografar texto em AES</p>
 
 ###[CriptografiaAes](Funcoes/Classes/CriptografiaAes.cs)
 > Classe de criptografia AES
@@ -36,24 +36,24 @@
 > **ViaCEP** - Busca de CEP baseada nos serviços da ViaCEP (https://viacep.com.br)
 
 ###[DataBase](Funcoes/Classes/DataBase.cs)
-> **Sum** - Método que realiza o SUM de uma coluna
-> **Max** - Método que realiza o MAX de uma coluna
-> **Min** - Método que realiza o MIN de uma coluna
-> **Avg** - Método que realiza o AVG de uma coluna
-> **Count** - Método que realiza o COUNT de uma coluna
-> **Update** - Método que realiza o UPDATE de um registro
-> **Delete** - Método que realiza o DELETE de um registro
-> **Select** - Método que realiza o SELECT de um registro retornando um Object
-> **Select** - Método que realiza o SELECT de um registro retornando um DataTable
-> **Select** - Método que realiza o SELECT de um registro retornando um DataRowCollection
-> **ColunasTabela** - Método que realiza o SELECT de uma coluna da tabela retornando uma lista de valores
-> **CreateParametersFromString** - Método que criar os parametros e concactena os seus valores em suas respectivas condições
-> **ExisteParametro** - Método que verifica se o existe algum parametro já adicionado no arry de parametros
-> **MontaSQL** - Método que cria uma String SQL pra INSERT ou UPDATE
-> **PreencheObjetos** - Método responsável por preencher o objeto com um SqlDataReader
-> **PreencheObjetos** - Método responsável por preencher o objeto com um DataRow
-> **AddParametros** - Método responsável por criar os parametros de um sqlCommand
-> **ContraSqlInjection** - Método que trata ataques de SQL injection
+> <p><strong>Sum</strong> - Método que realiza o SUM de uma coluna</p>
+> <p><strong>Max</strong> - Método que realiza o MAX de uma coluna</p>
+> <p><strong>Min</strong> - Método que realiza o MIN de uma coluna</p>
+> <p><strong>Avg</strong> - Método que realiza o AVG de uma coluna</p>
+> <p><strong>Count</strong> - Método que realiza o COUNT de uma coluna</p>
+> <p><strong>Update</strong> - Método que realiza o UPDATE de um registro</p>
+> <p><strong>Delete</strong> - Método que realiza o DELETE de um registro</p>
+> <p><strong>Select</strong> - Método que realiza o SELECT de um registro retornando um Object</p>
+> <p><strong>Select</strong> - Método que realiza o SELECT de um registro retornando um DataTable</p>
+> <p><strong>Select</strong> - Método que realiza o SELECT de um registro retornando um DataRowCollection</p>
+> <p><strong>ColunasTabela</strong> - Método que realiza o SELECT de uma coluna da tabela retornando uma lista de valores</p>
+> <p><strong>CreateParametersFromString</strong> - Método que criar os parametros e concactena os seus valores em suas respectivas condições</p>
+> <p><strong>ExisteParametro</strong> - Método que verifica se o existe algum parametro já adicionado no arry de parametros</p>
+> <p><strong>MontaSQL</strong> - Método que cria uma String SQL pra INSERT ou UPDATE</p>
+> <p><strong>PreencheObjetos</strong> - Método responsável por preencher o objeto com um SqlDataReader</p>
+> <p><strong>PreencheObjetos</strong> - Método responsável por preencher o objeto com um DataRow</p>
+> <p><strong>AddParametros</strong> - Método responsável por criar os parametros de um sqlCommand</p>
+> <p><strong>ContraSqlInjection</strong> - Método que trata ataques de SQL injection</p>
 
 ###[Email](Funcoes/Classes/Email.cs)
 > **EnviarEmail** - Classe para realização de envio de e-mails
@@ -62,39 +62,39 @@
 > **DataTabelToJSON** - Converte um DataTable em uma String JSON
 
 ###[Xml](Funcoes/Classes/Xml.cs)
-> **StringToXmlDocument** - Converte uma STRING em um XmlDocument
-> **ObjectToXmlDocument** - Converte um OBJETO em um XmlDocument
-> **StringToObject** - Converte uma String XML em um Objeto
-> **XmlDocumentToString** - Converte um XmlDocument para uma String XML
-> **ObjectToStringXML** - Converte um Objeto para uma String XML
-> **ValidarDocumentoXml** - Realiza a validação de um XML conforme sua XSD
+> <p><strong>StringToXmlDocument</strong> - Converte uma STRING em um XmlDocument</p>
+> <p><strong>ObjectToXmlDocument</strong> - Converte um OBJETO em um XmlDocument</p>
+> <p><strong>StringToObject</strong> - Converte uma String XML em um Objeto</p>
+> <p><strong>XmlDocumentToString</strong> - Converte um XmlDocument para uma String XML</p>
+> <p><strong>ObjectToStringXML</strong> - Converte um Objeto para uma String XML</p>
+> <p><strong>ValidarDocumentoXml</strong> - Realiza a validação de um XML conforme sua XSD</p>
 
 ###[Server](Funcoes/Classes/Server.cs)
-> **MontaSOAP** - Método que realiza a montagem de um envelope SOAP
-> **UploadArquivoFTP** - Realiza o UPLOAD de arquivos para um servidor FT
+> <p><strong>MontaSOAP</strong> - Método que realiza a montagem de um envelope SOAP</p>
+> <p><strong>UploadArquivoFTP</strong> - Realiza o UPLOAD de arquivos para um servidor FT</p>
 
 ###[UtilDate](Funcoes/Classes/UtilDate.cs)
-> **DiferencaDias** - Retorna a diferença entre dias
-> **TruncarData** - Truca um DateTime
-> **DataExenso** - Retorna a data por extenso
-> **DiaSemana** - Retorna o dia da semana
-> **ZerarTime** - Zera o time da data
+> <p><strong>DiferencaDias</strong> - Retorna a diferença entre dias</p>
+> <p><strong>TruncarData</strong> - Truca um DateTime</p>
+> <p><strong>DataExenso</strong> - Retorna a data por extenso</p>
+> <p><strong>DiaSemana</strong> - Retorna o dia da semana</p>
+> <p><strong>ZerarTime</strong> - Zera o time da data</p>
 
 ###[UtilString](Funcoes/Classes/UtilString.cs)
-> **SubstringRight** - Realiza o Substring pela direita
-> **RemoveEspeciais** - Remove caracteres especiais
-> **RemoveAcentos** - Remove acentos
-> **RemoverCaracteresEspeciais** - Remove caracteres especiais
-> **SoNumeros** - Retorna somente os números do texto
-> **SoLetras** - Retorna somente as letras do texto
-> **AcertoDG** - Realiza o acerto DG
-> **ValorExtenso** - Retorna um valor por extenso
+> <p><strong>SubstringRight</strong> - Realiza o Substring pela direita</p>
+> <p><strong>RemoveEspeciais</strong> - Remove caracteres especiais</p>
+> <p><strong>RemoveAcentos</strong> - Remove acentos</p>
+> <p><strong>RemoverCaracteresEspeciais</strong> - Remove caracteres especiais</p>
+> <p><strong>SoNumeros</strong> - Retorna somente os números do texto</p>
+> <p><strong>SoLetras</strong> - Retorna somente as letras do texto</p>
+> <p><strong>AcertoDG</strong> - Realiza o acerto DG</p>
+> <p><strong>ValorExtenso</strong> - Retorna um valor por extenso</p>
 
 ###[Validators](Funcoes/Classes/Validators.cs)
-> **ValidaEnderecoEmail** - Método que realiza a validação de um endereço de Email
-> **ValidaCnpj** - Método que realiza a validação de um CNPJ
-> **ValidaCpf** - Método que realiza a validação de um CPF
-> **ValidaPis** - Método que realiza a validação de um PIS
+> <p><strong>ValidaEnderecoEmail</strong> - Método que realiza a validação de um endereço de Email</p>
+> <p><strong>ValidaCnpj</strong> - Método que realiza a validação de um CNPJ</p>
+> <p><strong>ValidaCpf</strong> - Método que realiza a validação de um CPF</p>
+> <p><strong>ValidaPis</strong> - Método que realiza a validação de um PIS</p>
 
 ###[DefaultValues - Extensões de valores default](Funcoes/Values/DefaultValues.cs)
 ###[ComplementValues - Extensões de complementos](Funcoes/Values/ComplementValues.cs)
