@@ -3,16 +3,16 @@
 
 ##Funções
 ###[Certificado](Funcoes/Classes/Certificado.cs)
-> <p>**AssinarXML** - Assinar XML</p>
-> <p>**AssinarXmlPorElemento** - Assinar XML por elemento</p>
-> <p>**X509CertificateToBase64** - Retornar certificado base 64</p>
-> <p>**EncryptMessage** - Criptografat mensagem com certificado</p>
-> <p>**DescryptMessage** - Descriptografar mensagem com certificado</p>
-> <p>**RetornarThumbprint** - Retornar certificado por thumbprint</p>
-> <p>**RetornarNome** - Retornar certificado por nome</p>
-> <p>**Vencido** - Verificar validade do certificado</p>
-> <p>**SelecionarPorNome** - Selecionar um certificado por nome</p>
-> <p>**SelecionarPorThumbprint** - Selecionar um certificado por thumbprint</p>
+> <p><strong>AssinarXML</strong> - Assinar XML</p>
+> <p><strong>AssinarXmlPorElemento</strong> - Assinar XML por elemento</p>
+> <p><strong>X509CertificateToBase64</strong> - Retornar certificado base 64</p>
+> <p><strong>EncryptMessage</strong> - Criptografat mensagem com certificado</p>
+> <p><strong>DescryptMessage</strong> - Descriptografar mensagem com certificado</p>
+> <p><strong>RetornarThumbprint</strong> - Retornar certificado por thumbprint</p>
+> <p><strong>RetornarNome</strong> - Retornar certificado por nome</p>
+> <p><strong>Vencido</strong> - Verificar validade do certificado</p>
+> <p><strong>SelecionarPorNome</strong> - Selecionar um certificado por nome</p>
+> <p><strong>SelecionarPorThumbprint</strong> - Selecionar um certificado por thumbprint</p>
 
 > **Base64ToX509Certificate** - Transformar certificado base 64 em X509Certificate2
 
