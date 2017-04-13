@@ -1,8 +1,8 @@
 # MetodosUteis
 :octopus:  DLL de métodos uteis em projetos .net
 
-##Funções
-###[Certificado](Funcoes/Funcoes/Classes/Certificado.cs)
+## Funções
+### [Certificado](Funcoes/Funcoes/Classes/Certificado.cs)
 > <p><strong>AssinarXML</strong> - Assinar XML</p>
 > <p><strong>AssinarXmlPorElemento</strong> - Assinar XML por elemento</p>
 > <p><strong>X509CertificateToBase64</strong> - Retornar certificado base 64</p>
@@ -16,7 +16,7 @@
 
 > **Base64ToX509Certificate** - Transformar certificado base 64 em X509Certificate2
 
-###[Criptografia](Funcoes/Funcoes/Classes/Criptografia.cs)
+### [Criptografia](Funcoes/Funcoes/Classes/Criptografia.cs)
 > <p><strong>EncryptSHA</strong> - Criptografar texto em SHA1</p>
 > <p><strong>EncryptASCHII</strong> - Criptografar texto em ASCII</p>
 > <p><strong>DecryptASCHII</strong> - Descriptografar texto em ASCII</p>
@@ -26,16 +26,16 @@
 > <p><strong>EncryptAES</strong> - Criptografar texto em AES</p>
 > <p><strong>DecryptAES</strong> - Descriptografar texto em AES</p>
 
-###[CriptografiaAes](Funcoes/Funcoes/Classes/CriptografiaAes.cs)
+### [CriptografiaAes](Funcoes/Funcoes/Classes/CriptografiaAes.cs)
 > Classe de criptografia AES
 
-###[CriptografiaCryptoJs](Funcoes/Funcoes/Classes/CriptografiaCryptoJs.cs)
+### [CriptografiaCryptoJs](Funcoes/Funcoes/Classes/CriptografiaCryptoJs.cs)
 > Classe de criptografia baseada no CryptoJs utilizando o formato AES sendo equivalenta a realizada no JavaScript
 
-###[BuscaCep](Funcoes/Funcoes/Classes/BuscaCep.cs)
+### [BuscaCep](Funcoes/Funcoes/Classes/BuscaCep.cs)
 > **ViaCEP** - Busca de CEP baseada nos serviços da ViaCEP (https://viacep.com.br)
 
-###[DataBase](Funcoes/Funcoes/Classes/DataBase.cs)
+### [DataBase](Funcoes/Funcoes/Classes/DataBase.cs)
 > <p><strong>Sum</strong> - Método que realiza o SUM de uma coluna</p>
 > <p><strong>Max</strong> - Método que realiza o MAX de uma coluna</p>
 > <p><strong>Min</strong> - Método que realiza o MIN de uma coluna</p>
@@ -55,13 +55,13 @@
 > <p><strong>AddParametros</strong> - Método responsável por criar os parametros de um sqlCommand</p>
 > <p><strong>ContraSqlInjection</strong> - Método que trata ataques de SQL injection</p>
 
-###[Email](Funcoes/Funcoes/Classes/Email.cs)
+### [Email](Funcoes/Funcoes/Classes/Email.cs)
 > **EnviarEmail** - Classe para realização de envio de e-mails
 
-###[Json](Funcoes/Funcoes/Classes/Json.cs)
+### [Json](Funcoes/Funcoes/Classes/Json.cs)
 > **DataTabelToJSON** - Converte um DataTable em uma String JSON
 
-###[Xml](Funcoes/Funcoes/Classes/Xml.cs)
+### [Xml](Funcoes/Funcoes/Classes/Xml.cs)
 > <p><strong>StringToXmlDocument</strong> - Converte uma STRING em um XmlDocument</p>
 > <p><strong>ObjectToXmlDocument</strong> - Converte um OBJETO em um XmlDocument</p>
 > <p><strong>StringToObject</strong> - Converte uma String XML em um Objeto</p>
@@ -69,18 +69,18 @@
 > <p><strong>ObjectToStringXML</strong> - Converte um Objeto para uma String XML</p>
 > <p><strong>ValidarDocumentoXml</strong> - Realiza a validação de um XML conforme sua XSD</p>
 
-###[Server](Funcoes/Funcoes/Classes/Server.cs)
+### [Server](Funcoes/Funcoes/Classes/Server.cs)
 > <p><strong>MontaSOAP</strong> - Método que realiza a montagem de um envelope SOAP</p>
 > <p><strong>UploadArquivoFTP</strong> - Realiza o UPLOAD de arquivos para um servidor FT</p>
 
-###[UtilDate](Funcoes/Funcoes/Classes/UtilDate.cs)
+### [UtilDate](Funcoes/Funcoes/Classes/UtilDate.cs)
 > <p><strong>DiferencaDias</strong> - Retorna a diferença entre dias</p>
 > <p><strong>TruncarData</strong> - Truca um DateTime</p>
 > <p><strong>DataExenso</strong> - Retorna a data por extenso</p>
 > <p><strong>DiaSemana</strong> - Retorna o dia da semana</p>
 > <p><strong>ZerarTime</strong> - Zera o time da data</p>
 
-###[UtilString](Funcoes/Funcoes/Classes/UtilString.cs)
+### [UtilString](Funcoes/Funcoes/Classes/UtilString.cs)
 > <p><strong>SubstringRight</strong> - Realiza o Substring pela direita</p>
 > <p><strong>RemoveEspeciais</strong> - Remove caracteres especiais</p>
 > <p><strong>RemoveAcentos</strong> - Remove acentos</p>
@@ -90,16 +90,16 @@
 > <p><strong>AcertoDG</strong> - Realiza o acerto DG</p>
 > <p><strong>ValorExtenso</strong> - Retorna um valor por extenso</p>
 
-###[Validators](Funcoes/Funcoes/Classes/Validators.cs)
+### [Validators](Funcoes/Funcoes/Classes/Validators.cs)
 > <p><strong>ValidaEnderecoEmail</strong> - Método que realiza a validação de um endereço de Email</p>
 > <p><strong>ValidaCnpj</strong> - Método que realiza a validação de um CNPJ</p>
 > <p><strong>ValidaCpf</strong> - Método que realiza a validação de um CPF</p>
 > <p><strong>ValidaPis</strong> - Método que realiza a validação de um PIS</p>
 
-###[DefaultValues - Extensões de valores default](Funcoes/Funcoes/Values/DefaultValues.cs)
-###[ComplementValues - Extensões de complementos](Funcoes/Funcoes/Values/ComplementValues.cs)
+### [DefaultValues - Extensões de valores default](Funcoes/Funcoes/Values/DefaultValues.cs)
+### [ComplementValues - Extensões de complementos](Funcoes/Funcoes/Values/ComplementValues.cs)
 
-##Utilização
+## Utilização
 
 ```
 Funcoes.[CLASSE].[METODO]
