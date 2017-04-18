@@ -1,5 +1,5 @@
 # MetodosUteis
-:octopus:  DLL de métodos uteis em projetos .net
+> DLL de métodos uteis em projetos .net
 
 ## Funções
 ### [Certificado](Funcoes/Funcoes/Classes/Certificado.cs)
