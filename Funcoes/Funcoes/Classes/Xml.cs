@@ -127,7 +127,11 @@ namespace Funcoes
             {
                 StringWriter writer = new StringWriter();
                 XmlSerializer serializer = new XmlSerializer(Objeto.GetType());
-                serializer.Serialize(writer, Objeto);
+
+                XmlSerializerNamespaces namespaces = new XmlSerializerNamespaces();
+                namespaces.Add(String.Empty, String.Empty);
+
+                serializer.Serialize(writer, Objeto, namespaces);
                 return writer.ToString();
             }
             catch (Exception ex)
