@@ -50,6 +50,7 @@
     <Compile Include="Classes\Json.cs" />
     <Compile Include="Classes\Server.cs" />
     <Compile Include="Classes\UtilDate.cs" />
+    <Compile Include="Classes\UtilList.cs" />
     <Compile Include="Classes\UtilString.cs" />
     <Compile Include="Classes\Validators.cs" />
     <Compile Include="UTF8StringWriter.cs" />

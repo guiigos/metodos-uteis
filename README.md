@@ -74,11 +74,10 @@
 > <p><strong>UploadArquivoFTP</strong> - Realiza o UPLOAD de arquivos para um servidor FT</p>
 
 ### [UtilDate](Funcoes/Funcoes/Classes/UtilDate.cs)
+> <p><strong>DivideLista</strong> - Divide lista em listas menores</p>
+
+### [UtilList](Funcoes/Funcoes/Classes/UtilList.cs)
 > <p><strong>DiferencaDias</strong> - Retorna a diferença entre dias</p>
-> <p><strong>TruncarData</strong> - Truca um DateTime</p>
-> <p><strong>DataExenso</strong> - Retorna a data por extenso</p>
-> <p><strong>DiaSemana</strong> - Retorna o dia da semana</p>
-> <p><strong>ZerarTime</strong> - Zera o time da data</p>
 
 ### [UtilString](Funcoes/Funcoes/Classes/UtilString.cs)
 > <p><strong>SubstringRight</strong> - Realiza o Substring pela direita</p>
