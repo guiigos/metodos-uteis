@@ -6,6 +6,7 @@
 - **AssinarXML** - Assinar XML
 - **AssinarXmlPorElemento** - Assinar XML por elemento
 - **X509CertificateToBase64** - Retornar certificado base 64
+- **FileToBase64**  -Retornar certificado base 64 sem instalar
 - **EncryptMessage** - Criptografat mensagem com certificado
 - **DescryptMessage** - Descriptografar mensagem com certificado
 - **RetornarThumbprint** - Retornar certificado por thumbprint

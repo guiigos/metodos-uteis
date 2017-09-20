@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Security.Cryptography.Xml;
@@ -108,29 +109,29 @@ namespace Funcoes
             try
             {
                 XmlDocument doc = new XmlDocument();
-                System.Security.Cryptography.RSACryptoServiceProvider key = new System.Security.Cryptography.RSACryptoServiceProvider();
+                RSACryptoServiceProvider key = new RSACryptoServiceProvider();
 
-                System.Security.Cryptography.Xml.SignedXml signedDocument;
-                System.Security.Cryptography.Xml.KeyInfo keyInfo = new System.Security.Cryptography.Xml.KeyInfo();
+                SignedXml signedDocument;
+                KeyInfo keyInfo = new KeyInfo();
 
                 doc.LoadXml(conteudoXML);
-                key = (System.Security.Cryptography.RSACryptoServiceProvider)certificado.PrivateKey;
+                key = (RSACryptoServiceProvider)certificado.PrivateKey;
 
-                keyInfo.AddClause(new System.Security.Cryptography.Xml.KeyInfoX509Data(certificado));
-                signedDocument = new System.Security.Cryptography.Xml.SignedXml(doc);
+                keyInfo.AddClause(new KeyInfoX509Data(certificado));
+                signedDocument = new SignedXml(doc);
                 signedDocument.SigningKey = key;
                 signedDocument.KeyInfo = keyInfo;
 
-                System.Security.Cryptography.Xml.Reference reference = new System.Security.Cryptography.Xml.Reference();
+                Reference reference = new Reference();
                 reference.Uri = string.Empty;
 
-                reference.AddTransform(new System.Security.Cryptography.Xml.XmlDsigEnvelopedSignatureTransform());
-                reference.AddTransform(new System.Security.Cryptography.Xml.XmlDsigC14NTransform(false));
+                reference.AddTransform(new XmlDsigEnvelopedSignatureTransform());
+                reference.AddTransform(new XmlDsigC14NTransform(false));
 
                 signedDocument.AddReference(reference);
                 signedDocument.ComputeSignature();
 
-                System.Xml.XmlElement xmlDigitalSignature = signedDocument.GetXml();
+                XmlElement xmlDigitalSignature = signedDocument.GetXml();
                 doc.DocumentElement.AppendChild(doc.ImportNode(xmlDigitalSignature, true));
 
                 return doc.OuterXml;
@@ -153,6 +154,24 @@ namespace Funcoes
             catch (Exception ex)
             {
                 throw new CertificadoException("X509CertificateToBase64", ex);
+            }
+        }
+
+        public static string FileToBase64(String caminho, String senha)
+        {
+            try
+            {
+                var bytesCertificado = File.ReadAllBytes(caminho);
+                var certificado = new X509Certificate2(bytesCertificado, senha, X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.PersistKeySet | X509KeyStorageFlags.Exportable);
+
+                var builder = new StringBuilder();
+                builder.AppendLine(Convert.ToBase64String(certificado.Export(X509ContentType.Pkcs12, senha), Base64FormattingOptions.None));
+
+                return builder.ToString();
+            }
+            catch (Exception ex)
+            {
+                throw new CertificadoException("FileToBase64", ex);
             }
         }
 
