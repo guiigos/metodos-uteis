@@ -1,5 +1,5 @@
 # MetodosUteis
-> DLL de métodos uteis em projetos **.net**
+> DLL de métodos uteis em projetos **.net**.
 
 ## Métodos
 - [Certificado](MetodosUteis/MetodosUteis/Metodos/Certificado)
