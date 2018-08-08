@@ -47,7 +47,6 @@
     <Compile Include="Metodos\Certificado\Certificado.cs" />
     <Compile Include="Metodos\Criptografia\Criptografia.cs" />
     <Compile Include="Metodos\Criptografia\CriptografiaAES.cs" />
-    <Compile Include="Metodos\Criptografia\CriptografiaCryptoJs.cs" />
     <Compile Include="Metodos\DataBase\DataBaseORM.cs" />
     <Compile Include="Metodos\DataBase\DataBaseQueries.cs" />
     <Compile Include="Metodos\DataBase\DataBaseReflection.cs" />

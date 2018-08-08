@@ -27,27 +27,36 @@ namespace MetodosUteis
             try
             {
                 string consulta = string.Empty;
-                string sql =
-                    @"SELECT DISTINCT OBJECT_NAME(object_id) AS Tabela, c.name AS Coluna, ISNULL(st.type, t.name) AS TipoDados
+                string values = string.Empty;
+                string sql = @"
+                    SELECT DISTINCT 
+                        OBJECT_NAME(object_id) AS Tabela, 
+                        c.name AS Coluna, 
+                        ISNULL(st.type, t.name) AS TipoDados
                     FROM sys.COLUMNS c
-                    INNER JOIN sys.types t ON t.system_type_id = c.system_type_id 
+                    INNER JOIN sys.types t ON (t.system_type_id = c.system_type_id) 
                     LEFT JOIN 
                     (
-                        SELECT t.system_type_id, sd.DATA_TYPE AS type
+                        SELECT 
+                            t.system_type_id, 
+                            sd.DATA_TYPE AS type
                         FROM sys.systypes st
-                        INNER JOIN sys.types t ON t.system_type_id = st.xtype AND t.system_type_id != t.user_type_id
-                        INNER JOIN INFORMATION_SCHEMA.DOMAINS sd ON sd.domain_name = st.name
-                    ) st ON st.system_type_id = c.system_type_id
-                    WHERE is_identity = 'false' AND OBJECT_NAME(object_id) = '" + tabela + @"' AND t.name <> 'sysname'
+                        INNER JOIN sys.types t ON (t.system_type_id = st.xtype AND t.system_type_id != t.user_type_id)
+                        INNER JOIN INFORMATION_SCHEMA.DOMAINS sd ON (sd.domain_name = st.name)
+                    ) st ON (st.system_type_id = c.system_type_id)
+                    WHERE is_identity = 'false' 
+                        AND OBJECT_NAME(object_id) = '" + tabela + @"' 
+                        AND t.name <> 'sysname'
                     ORDER BY Tabela, Coluna";
 
-                string values = "VALUES (";
                 using (SqlCommand cmd = new SqlCommand(sql, connection, transaction))
                 {
                     using (SqlDataReader dr = cmd.ExecuteReader())
                     {
                         if (!update) consulta = "INSERT INTO " + tabela + "(";
                         else consulta = "UPDATE " + tabela + " SET ";
+
+                        values = "VALUES (";
 
                         while (dr.Read())
                         {
@@ -80,19 +89,21 @@ namespace MetodosUteis
                                             break;
                                         }
                                     }
-                                    if (!existeWHERE)
-                                        consulta += dr["Coluna"].ToString() + " = @" + dr["Coluna"].ToString() + ", ";
+
+                                    if (!existeWHERE) consulta += dr["Coluna"].ToString() + " = @" + dr["Coluna"].ToString() + ", ";
                                 }
                             }
                         }
 
                         consulta = consulta.Remove(consulta.LastIndexOf(','), 1);
+
                         if (!update)
                         {
                             values = values.Remove(values.LastIndexOf(','), 1);
                             consulta += ") " + values + ")";
                         }
                         else consulta += " WHERE " + where;
+
                         return consulta;
                     }
                 }

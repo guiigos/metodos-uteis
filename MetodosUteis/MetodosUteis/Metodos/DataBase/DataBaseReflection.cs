@@ -37,23 +37,23 @@ namespace MetodosUteis
         #endregion
 
         /// <summary>
-        /// Leitura dinâmica de um reader classe<typeparamref name="T"/>.
+        /// Leitura dinâmica de um reader classe.
         /// </summary>
         /// <example> 
-        /// Exemplo de aplicação do método <see cref="ReadLine"/>.
+        /// Exemplo de aplicação do método.
         /// <code>
-        /// var result = new List&lt;<typeparamref name="T"/>&gt;();
-        /// var cmdText = "Select * from Table";
-        /// using (var cmd = new SqlCommand(cmdText, conn))
-        /// using (var reader = cmd.ExecuteReader())
-        /// using (var dbUtils = new DbUtils&lt;<typeparamref name="T"/>&gt;())
-        /// {
-        ///     while (reader.Read())
+        ///     var result = new List<typeparamref name="T"/>();
+        ///     var cmdText = "SELECT * FROM [TABLE]";
+        ///     using (var cmd = new SqlCommand(cmdText, conn))
+        ///     using (var reader = cmd.ExecuteReader())
+        ///     using (var dbUtils = new DbUtils<typeparamref name="T"/>())
         ///     {
-        ///         var instance = dbUtils.ReadLine(reader);
-        ///         result.Add(instance);
+        ///         while (reader.Read())
+        ///         {
+        ///             var instance = dbUtils.ReadLine(reader);
+        ///             result.Add(instance);
+        ///         }
         ///     }
-        /// }
         /// </code>
         /// </example> 
         /// <param name="dr">IDataReader para se realizar a leitura da linha</param>
@@ -114,16 +114,16 @@ namespace MetodosUteis
         /// Faz a leitura dos registros do reader para a classe <typeparamref name="T"/>.
         /// </summary>
         /// <example> 
-        /// Exemplo de aplicação do método <see cref="ReadLines"/>.
+        /// Exemplo de aplicação do método.
         /// <code>
-        /// List&lt;<typeparamref name="T"/>&gt;() result;
-        /// var cmdText = "Select * from Table";
-        /// using (var cmd = new SqlCommand(cmdText, conn))
-        /// using (var reader = cmd.ExecuteReader())
-        /// using (var dbUtils = new DbUtils&lt;<typeparamref name="T"/>&gt;())
-        /// {
-        ///     result = dbUtils.ReadLine(reader);
-        /// }
+        ///     List<typeparamref name="T"/>() result;
+        ///     var cmdText = "SELECT * FROM [TABLE]";
+        ///     using (var cmd = new SqlCommand(cmdText, conn))
+        ///     using (var reader = cmd.ExecuteReader())
+        ///     using (var dbUtils = new DbUtils<typeparamref name="T"/>())
+        ///     {
+        ///         result = dbUtils.ReadLine(reader);
+        ///     }
         /// </code>
         /// </example>
         /// <param name="dr">IDataReader para se realizar a leitura dos registros.</param>

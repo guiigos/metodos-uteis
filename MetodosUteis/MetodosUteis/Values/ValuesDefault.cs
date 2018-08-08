@@ -5,7 +5,7 @@ namespace MetodosUteis
     /*********************************************************************************
     * 
     * Classe: DefaultValues
-    * Descrição: Valores padrão
+    * Descrição: Valores padrões
     * 
     * Guilherme Alves
     * guiigos.alves@gmail.com
