@@ -1,15 +1,16 @@
 # Folders
-[Dd]ebug/
+.vs/
 [Dd]ebugPublic/
-[Rr]elease/
 [Rr]eleases/
-x64/
-x86/
-bld/
+[Rr]elease/
+[Dd]ebug/
 [Bb]in/
 [Oo]bj/
 [Ll]og/
-.vs/
+packages/
+bld/
+x64/
+x86/
 
 # Files
 *.suo
