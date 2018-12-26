@@ -50,6 +50,7 @@
     <Compile Include="Metodos\DataBase\DataBaseORM.cs" />
     <Compile Include="Metodos\DataBase\DataBaseQueries.cs" />
     <Compile Include="Metodos\DataBase\DataBaseReflection.cs" />
+    <Compile Include="Metodos\Manipulation\Ini.cs" />
     <Compile Include="Metodos\Manipulation\Json.cs" />
     <Compile Include="Metodos\Manipulation\Xml.cs" />
     <Compile Include="Metodos\Manipulation\Xsd.cs" />
